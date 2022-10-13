@@ -20,8 +20,8 @@ class ImageController extends Controller
         return view(
             "dashboard-image",
             [
-                "images" => Image::all()
-                // "admin" => Auth::user()->role_id
+                "images" => Image::all(),
+                "admin" => Auth::user()->role_id
             ]
         );
     }
@@ -79,7 +79,20 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $image = Image::find($id);
+        return view(
+            'dashboard-image-form',
+            [
+                'images' => Image::all(),
+                'admin' => Auth::user()->role_id,
+                'action' => route('dashboard/image/update', $image->id),
+                'alt' => $image->alt,
+                'edit' => 'update',
+                'image' => asset($image->url),
+                "hidden" => "hidden",
+                'value' => "Update"
+            ]
+        );
     }
 
     /**
@@ -91,7 +104,14 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image = image::find($id);
+        $image->alt = $request->alt;
+        $imageFile = $request->file('file');
+        if (isset($imageFile)) {
+            $image->url = Storage::putFile('product', $request->file('file'));
+        };
+        $image->save();
+        return Redirect::route('dashboard/image');
     }
 
     /**
@@ -102,6 +122,8 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Image::find($id);
+        $image->delete();
+        return Redirect::route('dashboard/image');
     }
 }

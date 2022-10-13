@@ -15,6 +15,9 @@
                     <x-nav-link :href="route('homepage')" :active="request()->routeIs('homepage')">
                         {{ __("Page d'accueil") }}
                     </x-nav-link>
+                    <x-nav-link :href="route('dashboard/image')" :active="request()->routeIs('dashboard/image')">
+                        {{ __('Image') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -64,6 +67,9 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('homepage')" :active="request()->routeIs('homepage')">
                 {{ __("Page d'accueil") }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard/image')" :active="request()->routeIs('dashboard/image')">
+                {{ __('Image') }}
             </x-responsive-nav-link>
         </div>
 

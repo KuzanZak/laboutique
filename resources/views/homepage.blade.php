@@ -21,10 +21,12 @@
                 <img class="cart-img" src="{{ URL::asset('/img/panierW.png') }}" alt="panier">
                 <span id="cart-nb" class="cart-nb">0</span>
             </a>
-            <div class="search">
-                <input type="search" id="search" class="search-input">
-                <button class="button-search"><i class="fa fa-search icon-search" aria-hidden="true"></i></button>
-            </div>
+            <form autocomplete="off" id="header-form" class="header-form" action="#">
+                <div id="autocomplete" class="autocomplete">
+                    <input id="input-product" class="input-product" type="text">
+                </div>
+                <button class="button-product"><i class="fa fa-search icon-search" aria-hidden="true"></i></button>
+            </form>
         </div>
     </header>
     <section>

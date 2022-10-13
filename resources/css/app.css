@@ -3,18 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
     /* Sizes */
     font-size: 12px;
     --container-width: 1350px;
-
     /* Colors */
     --primary-color: #5EFF8C;
     --white-color: #ffffff;
     --black-color: #000000;
 }
-
 
 /* NORMALIZER */
 * {
@@ -25,7 +22,12 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     padding: 0;
 }
@@ -70,12 +72,13 @@ button:focus {
     margin: 0 auto;
     max-width: var(--container-width);
 }
+
 .header-logo {
     width: 5rem;
     aspect-ratio: 1/1;
 }
 
-.account{
+.account {
     position: absolute;
     font-size: .8rem;
     right: 3.5rem;
@@ -89,10 +92,12 @@ button:focus {
     right: .5rem;
     top: calc(50% - 3.5rem / 2);
 }
+
 .cart-img {
     width: 2rem;
     background: none;
 }
+
 .cart-nb {
     position: absolute;
     top: -.5rem;
@@ -104,30 +109,39 @@ button:focus {
     justify-content: center;
     border-radius: 50%;
     color: var(--white-color);
-    font-weight: bold;  
+    font-weight: bold;
 }
 
 /* SEARCH */
-.search {
+.header-form {
     color: var(--black-color);
-}
-.search-input{
-    width: 100%;
-    height: 1.7rem;
-    border: none;
-    border-top-right-radius: 5%;
-    border-bottom-right-radius: 5%;
+    display: grid;
+    grid-template-columns: 1fr 2.1rem;
+    padding-top: .5rem;
 }
 
-.button-search{
+.input-product {
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.input-product:focus {
+    outline-color: var(--primary-color);
+    /* border-color: var(--primary-color); */
+    border: .1rem solid var(--primary-color);
+}
+
+.button-product {
     position: absolute;
-    top: calc(50% + 3.3rem/ 2);
+    top: calc(50% + 3rem/ 2);
     right: .5rem;
     background-color: var(--primary-color);
-    padding: .09rem .3rem;
-    border-radius: 10%;
+    padding: .5rem .6rem;
+    border-radius: 0 1rem 1rem 0;
 }
 
-.icon-search{
+.icon-search {
     color: var(--white-color);
 }

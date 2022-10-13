@@ -41,4 +41,39 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* METHODS */
+
+    /**
+     * Get the user address.
+     */
+
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
+    /**
+     * Get the user role.
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Get the user orders.
+     */
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    /**
+     * Get the advice of the product from the user.
+     */
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }
